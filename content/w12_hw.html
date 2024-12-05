@@ -143,6 +143,69 @@ img.add_border {
         </header>
     <div id="tipue_search_content">w11_hw << <a href='w11_hw.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2<br /><h1>w12_hw</h1>
 <p>請各組組員分別利用<span> </span><span>Brython 以及 Jupyter lab</span><span> </span>環境, 執行<a href="http://229.cycu.org/python_2025_lite.7z">可攜程式</a><span> </span>notebook 目錄中的<span> </span><span>01_string_input_print.ipynb 至 10_for_search.ipynb</span><span> </span>筆記本程式, 完成後請將能在 Brython 執行的程式碼存入個人<span> </span><span>Gist</span><span> </span>後, 將各程式執行連結放入 w12_hw 網頁上. 最後請說明各範例中所使用的程式語法以及執行心得。</p>
+<h4>第七題</h4>
+<p>07_list_slicing_use</p>
+<p>說明：</p>
+<p>程式語法：</p>
+<p>運用切片(範圍：[<span>start:end]、步長：[<code>start:end:step]</code>）</span></p>
+<p>元素替換(清單[第幾項] = "<span>替換後的項目名稱</span>")</p>
+<p><span>插入(清單[start:end]</span> + ["Venus"] + 清單<span>[</span><span>start:end])</span></p>
+<p><span>添加(清單 + ["要加入的項目"])</span></p>
+<p><span>刪除(del)</span></p>
+<p><a href="https://mdecp2024.github.io/hw-41323103/content/Brython.html?src=https://gist.githubusercontent.com/41323103/fcd6aad94772d7f2b81a7f5374a79d87/raw/f436a5d3fd4944b170c0052f48dece30ee889956/w12_hw%25E7%25AC%25AC%25E4%25B8%2583%25E9%25A1%258C">第七題程式碼範例</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 定義包含五種感官的清單
+senses = ["eyes", "nose", "ears", "tongue", "skin"]
+print(senses)  # 輸出: ['eyes', 'nose', 'ears', 'tongue', 'skin']
+
+# 修改索引1（第二個元素），將 "nose" 改為 "smell"
+senses[1] = "smell"
+print(senses)  # 輸出: ['eyes', 'smell', 'ears', 'tongue', 'skin']
+
+# 使用切片修改索引3到4（包含 "tongue" 和 "skin"），將其替換為 "taste" 和 "touch"
+senses[3:5] = ["taste", "touch"]
+print(senses)  # 輸出: ['eyes', 'smell', 'ears', 'taste', 'touch']
+
+# 使用步長為2的切片，修改索引0、2、4的元素，將其替換為 "sight" 和 "hearing"
+senses[0:3:2] = ["sight", "hearing"]
+print(senses)  # 輸出: ['sight', 'smell', 'hearing', 'taste', 'touch']
+
+# 定義包含四顆行星的清單
+planets = ["Mercury", "Mars", "Earth", "Neptune"]
+print(planets)  # 輸出: ['Mercury', 'Mars', 'Earth', 'Neptune']
+
+# 在清單末尾添加 "Jupiter"
+planets = planets + ["Jupiter"]
+print(planets)  # 輸出: ['Mercury', 'Mars', 'Earth', 'Neptune', 'Jupiter']
+
+# 使用切片將 "Venus" 插入到 "Mars" 和 "Earth" 之間
+planets = planets[0:2] + ["Venus"] + planets[2:5]
+print(planets)  # 輸出: ['Mercury', 'Mars', 'Venus', 'Earth', 'Neptune', 'Jupiter']
+
+# 在 "Neptune" 後插入 "Uranus" 和 "Saturn"
+planets = planets[:5] + ["Uranus", "Saturn"] + planets[5:]
+print(planets)  # 輸出: ['Mercury', 'Mars', 'Venus', 'Earth', 'Neptune', 'Uranus', 'Saturn', 'Jupiter']
+
+# 定義一個包含不同房間名稱的清單
+house = ["kitchen", "dining room", "living room", "bedroom", "bathroom", "garden", "balcony", "terrace"]
+print(house)  # 輸出: ['kitchen', 'dining room', 'living room', 'bedroom', 'bathroom', 'garden', 'balcony', 'terrace']
+
+# 刪除索引1（第二個元素）的 "dining room"
+del house[1]
+print(house)  # 輸出: ['kitchen', 'living room', 'bedroom', 'bathroom', 'garden', 'balcony', 'terrace']
+
+# 刪除從索引4到5的元素，這是 "garden" 和 "balcony"
+del house[4:6]
+print(house)  # 輸出: ['kitchen', 'living room', 'bedroom', 'bathroom', 'terrace']
+
+# 使用步長為2的切片，刪除清單中每隔一個的元素（即索引為0、2、4的元素）
+del house[::2]
+print(house)  # 輸出: ['living room', 'bathroom']
+
+# 刪除整個清單
+del house
+# 試圖打印已經刪除的清單會引發錯誤
+print(house)  # 這會拋出錯誤: NameError: name 'house' is not defined</pre>
+<pre><br/><br/></pre>
 <p><a href="https://mdecp2024.github.io/hw-41323103/content/Brython.html?src=https://gist.githubusercontent.com/41323103/fcd6aad94772d7f2b81a7f5374a79d87/raw/3f343cf8646886fff3bdc98074b5165623df4898/hw1.py">程式碼</a></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="385" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/yR2Qak3TXlo" title="國立虎尾科技大學機械設計工程系 - 計算機程式 - w12: 41323103" width="716"></iframe></p>
 <h4>解題過程與心得:</h4>
