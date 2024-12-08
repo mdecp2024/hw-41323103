@@ -127,7 +127,7 @@ print(house)  # 這會拋出錯誤: NameError: name 'house' is not defined</pre>
 <p>08_for_range</p>
 <p>說明：</p>
 <p>程式語法：</p>
-<p>利用索引連接每個項目位置的名稱(<code>for index in range (範圍起點,範圍終點)</code>):</p>
+<p>利用索引連接每個項目位置的名稱(<code>for index in range (範圍起點,範圍終點):</code>)</p>
 <p><a href="https://mdecp2024.github.io/hw-41323103/content/Brython.html?src=https://gist.githubusercontent.com/41323103/fcd6aad94772d7f2b81a7f5374a79d87/raw/32ef69cd3ae7e73e6560cd7bab9f465f8e4ed95e/w12_hw%25E7%25AC%25AC%25E5%2585%25AB%25E9%25A1%258C">第八題程式碼範例</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 定義朋友的名稱列表
 friends = ["Geetha", "Luca", "Daisy", "Juhan"]
@@ -160,7 +160,37 @@ for index in range (0,4):
 for index in range (0,4):
     # 輸出每位朋友與他們最喜歡的菜餚的配對訊息
     print ("My friend " + friends[index] + "'s favorite dish is " + dishes[index])</pre>
-<pre><br/><br/></pre>
+<h4><br/>第九題</h4>
+<p>09_for_loop_if_equals</p>
+<p>說明：</p>
+<p>程式語法：</p>
+<p>運用 <code>if</code> 和 <code>else</code> 來區別已特別定義的項目輸出</p>
+<p><a href="https://mdecp2024.github.io/hw-41323103/content/Brython.html?src=https://gist.githubusercontent.com/41323103/fcd6aad94772d7f2b81a7f5374a79d87/raw/b9746f3f1cd5609e860c171bad46a30e11dc804b/w12_hw%25E7%25AC%25AC%25E4%25B9%259D%25E9%25A1%258C">第九題程式碼範例</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 定義包含動物名稱的列表
+animals = ["giraffe", "penguin", "dolphin"]
+# 輸出動物列表
+print(animals)
+
+# 使用迴圈遍歷動物列表，顯示每個動物及其位置
+for i in range(0, len(animals)):
+print("-- Beginning of loop --")
+# 顯示當前元素的位置和名稱
+print("The element in position " + str(i) + " is " + animals[i])
+
+# 定義你希望看到的動物
+wanted_to_see = "penguin"
+
+# 再次遍歷動物列表，尋找是否有你想看到的動物
+for i in range(0, len(animals)):
+# 如果當前動物是你想看到的動物
+if animals[i] == wanted_to_see:
+# 顯示你看到了該動物，並且這正是你想看到的動物
+print("I saw a " + animals[i] + " and I really wanted to see it!")
+# 如果當前動物不是你想看到的動物
+else:
+# 顯示你看到了這隻動物
+print("I saw a " + animals[i])</pre>
+<p><br/><br/></p>
 <p><a href="https://mdecp2024.github.io/hw-41323103/content/Brython.html?src=https://gist.githubusercontent.com/41323103/fcd6aad94772d7f2b81a7f5374a79d87/raw/3f343cf8646886fff3bdc98074b5165623df4898/hw1.py">程式碼</a></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="385" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/yR2Qak3TXlo" title="國立虎尾科技大學機械設計工程系 - 計算機程式 - w12: 41323103" width="716"></iframe></p>
 <h4>解題過程與心得:</h4>
