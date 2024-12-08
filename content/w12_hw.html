@@ -205,12 +205,48 @@ print(house)  # 輸出: ['living room', 'bathroom']
 del house
 # 試圖打印已經刪除的清單會引發錯誤
 print(house)  # 這會拋出錯誤: NameError: name 'house' is not defined</pre>
+<h4><br/>第八題</h4>
+<p>08_for_range</p>
+<p>說明：</p>
+<p>程式語法：</p>
+<p>利用索引連接每個項目位置的名稱(<code>for index in range (範圍起點,範圍終點)</code>):</p>
+<p><a href="https://mdecp2024.github.io/hw-41323103/content/Brython.html?src=https://gist.githubusercontent.com/41323103/fcd6aad94772d7f2b81a7f5374a79d87/raw/32ef69cd3ae7e73e6560cd7bab9f465f8e4ed95e/w12_hw%25E7%25AC%25AC%25E5%2585%25AB%25E9%25A1%258C">第八題程式碼範例</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 定義朋友的名稱列表
+friends = ["Geetha", "Luca", "Daisy", "Juhan"]
+# 定義每位朋友的最喜歡的菜餚列表
+dishes  = ["sushi", "burgers", "tacos", "pizza"]
+
+# 輸出朋友的名字
+print ("My friends' names are:")
+print (friends)
+
+# 使用迴圈來列出每個朋友的名字及其索引
+for index in range (0,4):
+    # 輸出當前索引
+    print ("index:  " + str(index))
+    # 輸出該索引對應的朋友名字
+    print ("friend: " + friends[index])
+
+# 輸出朋友最喜歡的菜餚
+print ("Their favorite dishes are:")
+print (dishes)
+
+# 使用迴圈來列出每道菜餚及其索引
+for index in range (0,4):
+    # 輸出當前索引
+    print ("index:  " + str(index))
+    # 輸出該索引對應的菜餚名稱
+    print ("dish: " + dishes[index])
+
+# 使用迴圈來列出每位朋友及他們最喜歡的菜餚的配對
+for index in range (0,4):
+    # 輸出每位朋友與他們最喜歡的菜餚的配對訊息
+    print ("My friend " + friends[index] + "'s favorite dish is " + dishes[index])</pre>
 <pre><br/><br/></pre>
 <p><a href="https://mdecp2024.github.io/hw-41323103/content/Brython.html?src=https://gist.githubusercontent.com/41323103/fcd6aad94772d7f2b81a7f5374a79d87/raw/3f343cf8646886fff3bdc98074b5165623df4898/hw1.py">程式碼</a></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="385" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/yR2Qak3TXlo" title="國立虎尾科技大學機械設計工程系 - 計算機程式 - w12: 41323103" width="716"></iframe></p>
 <h4>解題過程與心得:</h4>
-<p>今天我們使用Python來輸出文字，<span>Python的語法比較直白，</span>Python 的 print() 函式是一個基礎又強大的工具，無論是要顯示簡單的訊息，還是格式化輸出複雜的資料，都可以輕鬆實現。我還學習到了如何用for迴圈來排列要輸出的資料。</p>
-<br />w11_hw << <a href='w11_hw.html'>Previous</a> <a href='w13.html'>Next</a> >> w13</div>
+<p>今天我們使用Python來輸出文字，<span>Python的語法比較直白，</span>Python 的 print() 函式是一個基礎又強大的工具，無論是要顯示簡單的訊息，還是格式化輸出複雜的資料，都可以輕鬆實現。我還學習到了如何用for迴圈來排列要輸出的資料。</p><br />w11_hw << <a href='w11_hw.html'>Previous</a> <a href='w13.html'>Next</a> >> w13</div>
         
     <!-- footer -->
       <div class="container">
