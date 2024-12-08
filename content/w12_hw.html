@@ -272,7 +272,61 @@ print("I saw a " + animals[i] + " and I really wanted to see it!")
 else:
 # 顯示你看到了這隻動物
 print("I saw a " + animals[i])</pre>
-<p><br/><br/></p>
+<h4><br/>第十題</h4>
+<p>10_for_search</p>
+<p>說明：</p>
+<p>設定變數來篩選出滿足條件的項目</p>
+<p>程式語法：</p>
+<p>不等於(!=)</p>
+<p>等於(==)</p>
+<p>小於(&lt;)</p>
+<p>大於(&gt;)</p>
+<p>小於等於(&lt;=)</p>
+<p>大於等於(&gt;=)</p>
+<p><a href="https://mdecp2024.github.io/hw-41323103/content/Brython.html?src=https://gist.githubusercontent.com/41323103/fcd6aad94772d7f2b81a7f5374a79d87/raw/5a7960353d2170c7a100671f6b71a2d2685b5507/w12_hw%25E7%25AC%25AC%25E5%258D%2581%25E9%25A1%258C">第十題程式碼範例</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 定義包含配件名稱的列表
+accessories = ["belt", "hat", "gloves", "sunglasses", "ring"]
+# 輸出配件列表
+print(accessories)
+
+# 遍歷配件列表，顯示每個配件及其位置
+for i in range(len(accessories)):
+    print("The element " + accessories[i] + " is in position " + str(i))
+
+# 遍歷配件列表，找出字串長度為 6 的配件
+for i in range(len(accessories)):
+    if len(accessories[i]) == 6:
+        print("The element " + accessories[i] + " is in position " + str(i) + " and it has 6 characters")
+
+# 遍歷配件列表，找出字串長度小於 6 的配件
+for i in range(len(accessories)):
+    if len(accessories[i]) &lt; 6:
+        print("The element " + accessories[i] + " is in position " + str(i) + " and it has less than 6 characters")
+
+# 設定字串長度的閾值為 6，遍歷配件列表，找出字串長度大於 6 的配件
+n_of_characters = 6
+for i in range(len(accessories)):
+    if len(accessories[i]) &gt; n_of_characters:
+        print("The element " + accessories[i] + " is in position " + str(i) + " and it has more than " + str(n_of_characters) + " characters")
+
+# 遍歷配件列表，找出字串長度不等於 6 的配件
+n_of_characters = 6
+for i in range(len(accessories)):
+    if len(accessories[i]) != n_of_characters:
+        print("The element " + accessories[i] + " is in position " + str(i) + " and it has a number of characters different from " + str(n_of_characters))
+
+# 設定位置閾值為 2，遍歷配件列表，找出位置小於或等於 2 的配件
+position = 2
+for i in range(len(accessories)):
+    if i &lt;= position:
+        print("The element " + accessories[i] + " is in position " + str(i) + ", which is less than or equal to " + str(position))
+
+# 設定位置閾值為 2，遍歷配件列表，找出位置大於或等於 2 的配件
+position = 2
+for i in range(len(accessories)):
+    if i &gt;= position:
+        print("The element " + accessories[i] + " is in position " + str(i) + ", which is at least " + str(position))</pre>
+<pre><br/><br/></pre>
 <p><a href="https://mdecp2024.github.io/hw-41323103/content/Brython.html?src=https://gist.githubusercontent.com/41323103/fcd6aad94772d7f2b81a7f5374a79d87/raw/3f343cf8646886fff3bdc98074b5165623df4898/hw1.py">程式碼</a></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="385" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/yR2Qak3TXlo" title="國立虎尾科技大學機械設計工程系 - 計算機程式 - w12: 41323103" width="716"></iframe></p>
 <h4>解題過程與心得:</h4>
