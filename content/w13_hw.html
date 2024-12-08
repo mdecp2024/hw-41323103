@@ -159,84 +159,30 @@ brython({debug:1,pythonpath:['./../cmsimde/static/','./../downloads/py/']});
 <script type="text/python">
 from browser import html
 from browser import document as doc
-canvas = html.CANVAS(width=600, height=600) 
+canvas = html.CANVAS(width=600,height=600)
 brython_div = doc["brython_div1"]
 brython_div <= canvas
-ctx = canvas.getContext("2d")
+ctx=canvas.getContext("2d")
 
 ctx.lineWidth = 1
 ctx.strokeStyle =  'blue'
 ctx.beginPath()
-ctx.moveTo(10,10)
-ctx.lineTo(100,100)
+ctx.moveTo(100,100)
+ctx.lineTo(300,300)
 ctx.stroke()
 
-ctx.lineWidth = 1
-ctx.strokeStyle =  'red'
+ctx.strokeStyle = 'red'
 ctx.beginPath()
-ctx.moveTo(10,10)
-ctx.lineTo(10,100)
+ctx.rect(100, 100, 200, 200)
+ctx.rect(200, 200, 200, 200)
 ctx.stroke()
 
-ctx.lineWidth = 1
-ctx.strokeStyle =  'red'
+ctx.strokeStyle = 'black'
 ctx.beginPath()
-ctx.moveTo(10,10)
-ctx.lineTo(100,10)
+ctx.arc(200, 200, 141.4, 0, 2 * 3.14)
 ctx.stroke()
-
-ctx.lineWidth = 1
-ctx.strokeStyle =  'red'
 ctx.beginPath()
-ctx.moveTo(10,100)
-ctx.lineTo(100,100)
-ctx.stroke()
-
-ctx.lineWidth = 1
-ctx.strokeStyle =  'red'
-ctx.beginPath()
-ctx.moveTo(100,10)
-ctx.lineTo(100,100)
-ctx.stroke()
-
-ctx.lineWidth = 1
-ctx.strokeStyle =  'red'
-ctx.beginPath()
-ctx.moveTo(50,50)
-ctx.lineTo(50,150)
-ctx.stroke()
-
-ctx.lineWidth = 1
-ctx.strokeStyle =  'red'
-ctx.beginPath()
-ctx.moveTo(50,50)
-ctx.lineTo(150,50)
-ctx.stroke()
-
-ctx.lineWidth = 1
-ctx.strokeStyle =  'red'
-ctx.beginPath()
-ctx.moveTo(150,150)
-ctx.lineTo(50,150)
-ctx.stroke()
-
-ctx.lineWidth = 1
-ctx.strokeStyle =  'red'
-ctx.beginPath()
-ctx.moveTo(150,150)
-ctx.lineTo(150,50)
-ctx.stroke()
-
-ctx.strokeStyle = 'black'  # 設定圓的顏色為黑色
-
-# 第一個矩形的外切圓
-ctx.beginPath()
-ctx.arc(50, 50, 70.7, 0, 2 * 3.14)  # 圓心在(50, 50)，半徑為70.7（sqrt(2) * 邊長的一半）
-ctx.stroke()
-
-# 第二個矩形的外切圓
-ctx.beginPath()
-ctx.arc(100, 100, 70.7, 0, 2 * 3.14)  # 圓心在(100, 100)，半徑為70.7
+ctx.arc(300, 300, 141.4, 0, 2 * 3.14)
 ctx.stroke()
 </script>
 </p><br />w13 << <a href='w13.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2</div>

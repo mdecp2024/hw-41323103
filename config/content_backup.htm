@@ -195,12 +195,13 @@ print("I saw a " + animals[i])</pre>
 <p>說明：</p>
 <p>設定變數來篩選出滿足條件的項目</p>
 <p>程式語法：</p>
-<p>不等於(!=)</p>
-<p>等於(==)</p>
-<p>小於(&lt;)</p>
-<p>大於(&gt;)</p>
-<p>小於等於(&lt;=)</p>
-<p>大於等於(&gt;=)</p>
+<p>取得字串長度(<code>len</code>)</p>
+<p>不等於(<code>!=</code>)</p>
+<p>等於(<code>==</code>)</p>
+<p>小於(<code>&lt;</code>)</p>
+<p>大於(<code>&gt;</code>)</p>
+<p>小於等於(<code>&lt;=</code>)</p>
+<p>大於等於(<code>&gt;=</code>)</p>
 <p><a href="https://mdecp2024.github.io/hw-41323103/content/Brython.html?src=https://gist.githubusercontent.com/41323103/fcd6aad94772d7f2b81a7f5374a79d87/raw/5a7960353d2170c7a100671f6b71a2d2685b5507/w12_hw%25E7%25AC%25AC%25E5%258D%2581%25E9%25A1%258C">第十題程式碼範例</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 定義包含配件名稱的列表
 accessories = ["belt", "hat", "gloves", "sunglasses", "ring"]
@@ -267,85 +268,179 @@ brython({debug:1,pythonpath:['/static/','./../downloads/py/']});
 <script type="text/python">
 from browser import html
 from browser import document as doc
-canvas = html.CANVAS(width=600, height=600) 
+canvas = html.CANVAS(width=600,height=600)
 brython_div = doc["brython_div1"]
 brython_div <= canvas
-ctx = canvas.getContext("2d")
+ctx=canvas.getContext("2d")
 
 ctx.lineWidth = 1
 ctx.strokeStyle =  'blue'
 ctx.beginPath()
-ctx.moveTo(10,10)
-ctx.lineTo(100,100)
+ctx.moveTo(100,100)
+ctx.lineTo(300,300)
 ctx.stroke()
 
-ctx.lineWidth = 1
-ctx.strokeStyle =  'red'
+ctx.strokeStyle = 'red'
 ctx.beginPath()
-ctx.moveTo(10,10)
-ctx.lineTo(10,100)
+ctx.rect(100, 100, 200, 200)
+ctx.rect(200, 200, 200, 200)
 ctx.stroke()
 
-ctx.lineWidth = 1
-ctx.strokeStyle =  'red'
+ctx.strokeStyle = 'black'
 ctx.beginPath()
-ctx.moveTo(10,10)
-ctx.lineTo(100,10)
+ctx.arc(200, 200, 141.4, 0, 2 * 3.14)
 ctx.stroke()
-
-ctx.lineWidth = 1
-ctx.strokeStyle =  'red'
 ctx.beginPath()
-ctx.moveTo(10,100)
-ctx.lineTo(100,100)
+ctx.arc(300, 300, 141.4, 0, 2 * 3.14)
 ctx.stroke()
 
-ctx.lineWidth = 1
-ctx.strokeStyle =  'red'
-ctx.beginPath()
-ctx.moveTo(100,10)
-ctx.lineTo(100,100)
-ctx.stroke()
+def point_in_circle1(x, y):
+    cx, cy, r = 200, 200, 141.4
+    return (x - cx) ** 2 + (y - cy) ** 2 < r ** 2
 
-ctx.lineWidth = 1
-ctx.strokeStyle =  'red'
-ctx.beginPath()
-ctx.moveTo(50,50)
-ctx.lineTo(50,150)
-ctx.stroke()
+def point_in_square1(x, y):
+    return 100 <= x <= 300 and 100 <= y <= 300
 
-ctx.lineWidth = 1
-ctx.strokeStyle =  'red'
-ctx.beginPath()
-ctx.moveTo(50,50)
-ctx.lineTo(150,50)
-ctx.stroke()
+def point_outside_square1(x, y):
+    return not point_in_square1(x, y)
 
-ctx.lineWidth = 1
-ctx.strokeStyle =  'red'
-ctx.beginPath()
-ctx.moveTo(150,150)
-ctx.lineTo(50,150)
-ctx.stroke()
+def point_in_circle2(x, y):
+    cx, cy, r = 300, 300, 141.4
+    return (x - cx) ** 2 + (y - cy) ** 2 < r ** 2
 
-ctx.lineWidth = 1
-ctx.strokeStyle =  'red'
-ctx.beginPath()
-ctx.moveTo(150,150)
-ctx.lineTo(150,50)
-ctx.stroke()
+def point_inside_square2(x, y):
+    return 200 <= x <= 400 and 200 <= y <= 400
 
-ctx.strokeStyle = 'black'  # 設定圓的顏色為黑色
+def point_on_line_segment(x, y):
+    return y == x and 100 <= x <= 300 and 100 <= y <= 300
 
-# 第一個矩形的外切圓
-ctx.beginPath()
-ctx.arc(50, 50, 70.7, 0, 2 * 3.14)  # 圓心在(50, 50)，半徑為70.7（sqrt(2) * 邊長的一半）
-ctx.stroke()
+def point_above_line(x, y):
+    return y < x
 
-# 第二個矩形的外切圓
-ctx.beginPath()
-ctx.arc(100, 100, 70.7, 0, 2 * 3.14)  # 圓心在(100, 100)，半徑為70.7
-ctx.stroke()
+def point_below_line(x, y):
+    return y > x
+
+def point_above_square1(x, y):
+    return y < 100
+
+def point_below_square1(x, y):
+    return y > 300
+
+def point_left_of_square1(x, y):
+    return x < 100
+
+def point_right_of_square1(x, y):
+    return x > 300
+
+def point_above_square2(x, y):
+    return y < 200
+
+def point_below_square2(x, y):
+    return y > 400
+
+def point_left_of_square2(x, y):
+    return x < 200
+
+def point_right_of_square2(x, y):
+    return x > 400
+
+def get_region(x, y):
+    regions = []
+    if point_in_circle1(x, y):
+        regions.append("circle1")
+    if point_in_square1(x, y):
+        regions.append("inside_square1")
+    if point_outside_square1(x, y):
+        regions.append("outside_square1")
+    if point_in_circle2(x, y):
+        regions.append("circle2")
+    if point_inside_square2(x, y):
+        regions.append("inside_square2")
+    if point_on_line_segment(x, y):
+        regions.append("on_line_segment")
+    if point_above_line(x, y):
+        regions.append("above_line")
+    if point_below_line(x, y):
+        regions.append("below_line")
+
+if point_above_square1(x, y):
+        regions.append("above_square1")
+    if point_below_square1(x, y):
+        regions.append("below_square1")
+    if point_left_of_square1(x, y):
+        regions.append("left_of_square1")
+    if point_right_of_square1(x, y):
+        regions.append("right_of_square1")
+    if point_above_square2(x, y):
+        regions.append("above_square2")
+    if point_below_square2(x, y):
+        regions.append("below_square2")
+    if point_left_of_square2(x, y):
+        regions.append("left_of_square2")
+    if point_right_of_square2(x, y):
+        regions.append("right_of_square2")
+    
+    return regions
+
+def get_region_color(x, y):
+    regions = get_region(x, y)
+
+    if "circle1" not in regions and "circle2" not in regions:
+        return None
+    
+    if "circle1" in regions and "circle2" in regions:
+        return "purple"
+
+    if "circle1" in regions and "inside_square1" in regions:
+        if point_above_line(x, y):
+            return "green"
+        elif point_below_line(x, y):
+            return "yellow"
+
+    if "circle1" in regions and "outside_square1" in regions:
+        if point_above_square1(x, y):
+            return "cyan"
+        elif point_below_square1(x, y):
+            return "magenta"
+        elif point_left_of_square1(x, y):
+            return "orange"
+        elif point_right_of_square1(x, y):
+            return "brown"
+
+    if "circle2" in regions and "inside_square2" in regions:
+        return "red"
+
+    if "circle2" in regions and "outside_square2" in regions:
+        if point_above_square2(x, y):
+            return "lightblue"
+        elif point_below_square2(x, y):
+            return "pink"
+        elif point_left_of_square2(x, y):
+            return "lightgreen"
+        elif point_right_of_square2(x, y):
+            return "lightyellow"
+
+    if "on_line_segment" in regions:
+        return "black"
+    elif "above_line" in regions:
+        return "orange"
+    elif "below_line" in regions:
+        return "pink"
+
+    return None
+
+
+def scan_and_draw():
+    for y in range(0, canvas.height, 1):
+        for x in range(0, canvas.width, 1):
+            color = get_region_color(x, y)
+            if color:
+                ctx.fillStyle = color
+                ctx.beginPath()
+                ctx.arc(x + 1, y + 1, 1, 0, 2 * 3.14)
+                ctx.fill()
+
+scan_and_draw()
 </script>
 </p><h1>HW 2</h1>
 <h4>主題: Python 的數列、判斷式與重複迴圈 (20%)<span style="background-color: #ffff99;"><br/></span></h4>
