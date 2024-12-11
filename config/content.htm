@@ -249,17 +249,18 @@ for i in range(len(accessories)):
 <p><a href="https://mdecp2024.github.io/hw-41323103/content/Brython.html?src=https://gist.githubusercontent.com/41323103/fcd6aad94772d7f2b81a7f5374a79d87/raw/3f343cf8646886fff3bdc98074b5165623df4898/hw1.py">程式碼</a></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="385" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/yR2Qak3TXlo" title="國立虎尾科技大學機械設計工程系 - 計算機程式 - w12: 41323103" width="716"></iframe></p>
 <h4>解題過程與心得:</h4>
-<p>今天我們使用Python來輸出文字，<span>Python的語法比較直白，</span>Python 的 print() 函式是一個基礎又強大的工具，無論是要顯示簡單的訊息，還是格式化輸出複雜的資料，都可以輕鬆實現。我還學習到了如何用for迴圈來排列要輸出的資料。</p><h2>w13</h2>
+<p>今天我們使用Python來輸出文字，<span>Python的語法比較直白，</span>Python 的 print() 函式是一個基礎又強大的工具，無論是要顯示簡單的訊息，還是格式化輸出複雜的資料，都可以輕鬆實現。我還學習到了如何用for迴圈來排列要輸出的資料。</p>
+<h2>w13</h2>
 <h3>w13_hw</h3>
 <p>
 <script src="/static/brython.js"></script>
 <script src="/static/brython_stdlib.js"></script>
 </p>
-<!--啟動Brython-->
+<!-- 啟動Brython -->
 <p>
 <script>
--window.onload=function(){
-brython({debug:1,pythonpath:['/static/','./../downloads/py/']});
+window.onload=function(){
+    brython({debug:1, pythonpath:['/static/','./../downloads/py/']});  // 設定Brython並加載指定路徑
 }
 </script>
 </p>
@@ -268,33 +269,200 @@ brython({debug:1,pythonpath:['/static/','./../downloads/py/']});
 <script type="text/python">
 from browser import html
 from browser import document as doc
-canvas = html.CANVAS(width=600,height=600)
-brython_div = doc["brython_div1"]
-brython_div <= canvas
-ctx=canvas.getContext("2d")
 
-ctx.lineWidth = 1
-ctx.strokeStyle =  'blue'
+canvas = html.CANVAS(width=600, height=600)  # 創建畫布，設置大小為600x600
+brython_div = doc["brython_div1"]  # 定位畫布容器
+brython_div <= canvas  # 把畫布加入到指定的div中
+
+ctx = canvas.getContext("2d")  # 獲取畫布的2d繪圖上下文
+
+ctx.lineWidth = 1  # 設定畫筆的線寬為1
+
+# 畫藍色對角線
+ctx.strokeStyle = 'blue'
 ctx.beginPath()
-ctx.moveTo(100,100)
-ctx.lineTo(300,300)
-ctx.stroke()
+ctx.moveTo(100, 100)  # 開始點為(100, 100)
+ctx.lineTo(300, 300)  # 終點為(300, 300)
+ctx.stroke()  # 畫線
 
+# 畫紅色的兩個矩形
 ctx.strokeStyle = 'red'
 ctx.beginPath()
-ctx.rect(100, 100, 200, 200)
-ctx.rect(200, 200, 200, 200)
-ctx.stroke()
+ctx.rect(100, 100, 200, 200)  # 畫第一個矩形，位置(100, 100)，尺寸200x200
+ctx.rect(200, 200, 200, 200)  # 畫第二個矩形，位置(200, 200)，尺寸200x200
+ctx.stroke()  # 畫線
 
+# 畫黑色的兩個圓形
 ctx.strokeStyle = 'black'
 ctx.beginPath()
-ctx.arc(200, 200, 141.4, 0, 2 * 3.14)
+ctx.arc(200, 200, 141.4, 0, 2 * 3.14)  # 畫圓心為(200, 200)，半徑141.4的圓
 ctx.stroke()
 ctx.beginPath()
-ctx.arc(300, 300, 141.4, 0, 2 * 3.14)
+ctx.arc(300, 300, 141.4, 0, 2 * 3.14)  # 畫圓心為(300, 300)，半徑141.4的圓
 ctx.stroke()
 </script>
-</p><h1>HW 2</h1>
+</p>
+<p>
+<script src="/static/brython.js"></script>
+<script src="/static/brython_stdlib.js"></script>
+</p>
+<p>
+<script>
+window.onload=function(){
+    brython({debug:1,pythonpath:['/static/','./../downloads/py/']});
+}
+</script>
+</p>
+<div id="brython_div1"></div>
+<p>
+<script type="text/python">
+from browser import html
+from browser import document as doc
+
+# 設置畫布，大小為600x600
+canvas = html.CANVAS(width=600, height=600)
+brython_div = doc["brython_div1"]
+brython_div <= canvas
+ctx = canvas.getContext("2d")
+
+ctx.lineWidth = 1
+
+# 畫兩個矩形，這些矩形分別位於畫布的不同位置
+ctx.strokeStyle = 'red'
+ctx.beginPath()
+ctx.rect(100, 100, 200, 200)  # 第一個矩形
+ctx.rect(200, 200, 200, 200)  # 第二個矩形
+ctx.stroke()
+
+# 畫對角線，從(100,100)到(300,300)
+ctx.strokeStyle = 'blue'
+ctx.beginPath()
+ctx.moveTo(100, 100)
+ctx.lineTo(300, 300)
+ctx.stroke()
+
+# 畫兩個圓，這些圓分別位於(200,200)和(300,300)，半徑為141.4
+ctx.strokeStyle = 'black'
+ctx.beginPath()
+ctx.arc(200, 200, 141.4, 0, 2 * 3.14)  # 第一個圓
+ctx.stroke()
+ctx.beginPath()
+ctx.arc(300, 300, 141.4, 0, 2 * 3.14)  # 第二個圓
+ctx.stroke()
+
+# 檢查點是否在第一個圓內
+def point_in_circle1(x, y):
+    cx, cy, r = 200, 200, 141.4
+    return (x - cx) ** 2 + (y - cy) ** 2 < r ** 2
+
+# 檢查點是否在第二個圓內
+def point_in_circle2(x, y):
+    cx, cy, r = 300, 300, 141.4
+    return (x - cx) ** 2 + (y - cy) ** 2 < r ** 2
+
+# 檢查點是否在第一個矩形內
+def point_in_square1(x, y):
+    return 100 <= x <= 300 and 100 <= y <= 300
+
+# 檢查點是否在第二個矩形內
+def point_in_square2(x, y):
+    return 200 <= x <= 400 and 200 <= y <= 400
+
+# 檢查點是否位於對角線下方
+def point_below_line(x, y):
+    return y > x
+
+# 檢查點是否位於對角線上方
+def point_above_line(x, y):
+    return y < x
+
+# 檢查點是否在對角線上
+def point_on_line(x, y):
+    return y == x
+
+# 根據點的位置，返回顏色
+def get_region_color(x, y):
+    # 如果點不在任一圓內，則不著色
+    if not (point_in_circle1(x, y) or point_in_circle2(x, y)):
+        return None
+    
+    # 兩個圓的交集區域，顏色為紅色
+    if point_in_circle1(x, y) and point_in_circle2(x, y):
+        return "red"  
+    
+    # 第一個圓內且第一個矩形的上方區域，顏色為綠色
+    if point_in_circle1(x, y) and point_in_square1(x, y) and point_above_line(x, y):
+        return "green"
+    
+    # 第一個圓內且第一個矩形的下方區域，顏色為藍色
+    if point_in_circle1(x, y) and point_in_square1(x, y) and point_below_line(x, y):
+        return "blue"
+    
+    # 第一個圓內且不在第一個矩形內且在上方區域，顏色為黃色
+    if point_in_circle1(x, y) and not point_in_square1(x, y) and y < 100:
+        return "yellow"
+    
+    # 第一個圓內且不在第一個矩形內且在下方區域，顏色為橙色
+    if point_in_circle1(x, y) and not point_in_square1(x, y) and y > 300:
+        return "orange"
+    
+    # 第二個圓內且第二個矩形內部，顏色為紫色
+    if point_in_circle2(x, y) and point_in_square2(x, y):
+        return "purple"
+    
+    # 第二個圓內且在第二個矩形上方區域，顏色為粉紅色
+    if point_in_circle2(x, y) and not point_in_square2(x, y) and y < 200:
+        return "pink"
+    
+    # 第二個圓內且在第二個矩形下方區域，顏色為灰色
+    if point_in_circle2(x, y) and not point_in_square2(x, y) and y > 400:
+        return "gray"
+
+    # 第二個圓內且不在第二個矩形內且位於左方區域，顏色為棕色
+    if point_in_circle2(x, y) and not point_in_square2(x, y) and x < 200:
+        return "brown"
+
+    # 第二個圓內且不在第二個矩形內且位於右方區域，顏色為青色
+    if point_in_circle2(x, y) and not point_in_square2(x, y) and x > 400:
+        return "cyan"
+    
+    # 第一個圓內且在第一個矩形右方區域，顏色為淺綠色
+    if point_in_circle1(x, y) and not point_in_square1(x, y) and x > 300:
+        return "lightgreen"
+
+    # 第二個圓內且在第二個矩形左方區域，顏色為深藍色
+    if point_in_circle2(x, y) and not point_in_square2(x, y) and x < 200:
+        return "darkblue"
+    
+    # 第一個矩形與第二個矩形的交集區域，顏色為淺黃色
+    if point_in_square1(x, y) and point_in_square2(x, y):
+        return "lightyellow"
+    
+    # 左邊圓形最左側區域，這部分是您遺漏的區域，顏色為淺粉紅色
+    if point_in_circle1(x, y) and not point_in_square1(x, y) and x < 100:
+        return "lightpink"
+    
+    return None
+
+# 扫描每个像素并根据位置着色
+def scan_and_draw():
+    # 掃描每一個像素點，根據位置決定顏色
+    for y in range(0, canvas.height, 1):  # y從0到畫布高度
+        for x in range(0, canvas.width, 1):  # x從0到畫布寬度
+            color = get_region_color(x, y)  # 根據位置獲取顏色
+            if color:  # 如果該點有顏色
+                ctx.fillStyle = color  # 設置顏色
+                ctx.beginPath()
+                ctx.arc(x + 1, y + 1, 1, 0, 2 * 3.14)  # 用圓點標示
+                ctx.fill()
+
+# 開始掃描並繪製顏色
+scan_and_draw()
+</script>
+</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="688" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/syGLPY-ZuCk" title="國立虎尾科技大學機械設計工程系 - 計算機程式 - w13_hw： 41323103" width="1280"></iframe></p>
+<h4>作業心得：<span>通過具體的條件問題問chetgpt，來逐步得到更完整、更符合題目所需的程式，過程中可能會應為提問不夠具體或不完整導致chetgpt給出的程式沒有到達預期的效果。</span></h4>
+<h1>HW 2</h1>
 <h4>主題: Python 的數列、判斷式與重複迴圈 (20%)<span style="background-color: #ffff99;"><br/></span></h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 2 and Part 3</p>
 <hr/>
