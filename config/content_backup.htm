@@ -592,7 +592,7 @@ for i in range(1, 101):
 print("從 1 累加到 100 的總和是:", total)
 </pre>
 <pre><span><strong>題目二：<br/></strong>延伸上題, 設計一個函式 addto(1, 100), 可以完成上述的累加結果。(以"addto"作為連結標題)<br/></span></pre>
-<pre><a href="https://mdecp2024.github.io/hw-41323103/content/Brython.html?src=https://gist.githubusercontent.com/41323103/07d4648cec75558f7710f3cf72730062/raw/82a8584f7e670123f1ffe22d927e30f3234144ba/%25E9%25A1%258C%25E7%259B%25AE%25E4%25BA%258C%25EF%25BC%259Aaddto(1,%2520100)">addto<br/></a><br/><span>設計思考：<br/>這段程式的目的是設計一個函式 <code>addto(start, end)</code>，它能夠計算並返回從 <code>start</code> 到 <code>end</code> 之間所有數字的總和。<br/>利用循環來進行累加，這樣的設計可以使得我們對任何範圍的數字進行總和計算，而不僅限於從 1 到 100。<br/><br/></span>執行過程：<br/>我們首先需要初始化一個總和變數 <code>total</code>，並將其設為 0。<br/>接著通過 <code>for</code> 迴圈遍歷從 <code>start</code> 到 <code>end</code>（包含 <code>end</code>）的所有數字，每次迴圈都將當前的數字加到 <code>total</code>。<br/>當迴圈結束時，<code>total</code> 將儲存範圍內所有數字的總和，我們會將這個值返回。<br/>呼叫該函式來計算範圍內的總和並顯示結果。</pre>
+<pre><a href="https://mdecp2024.github.io/hw-41323103/content/Brython.html?src=https://gist.githubusercontent.com/41323103/07d4648cec75558f7710f3cf72730062/raw/82a8584f7e670123f1ffe22d927e30f3234144ba/%25E9%25A1%258C%25E7%259B%25AE%25E4%25BA%258C%25EF%25BC%259Aaddto(1,%2520100)">addto<br/></a><span><br/>設計思考：<br/>這段程式的目的是設計一個函式 <code>addto(start, end)</code>，它能夠計算並返回從 <code>start</code> 到 <code>end</code> 之間所有數字的總和。<br/>利用循環來進行累加，這樣的設計可以使得我們對任何範圍的數字進行總和計算，而不僅限於從 1 到 100。<br/><br/></span>執行過程：<br/>首先需要初始化一個總和變數 <code>total</code>，並將其設為 0。<br/>接著通過 <code>for</code> 迴圈遍歷從 <code>start</code> 到 <code>end</code>（包含 <code>end</code>）的所有數字，每次迴圈都將當前的數字加到 <code>total</code>。<br/>當迴圈結束時，<code>total</code> 將儲存範圍內所有數字的總和，我們會將這個值返回。<br/>呼叫該函式來計算範圍內的總和並顯示結果。</pre>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 定義函式 addto，接受兩個參數 start 和 end
 def addto(start, end):
     # 初始化總和，設為 0
@@ -611,6 +611,31 @@ result = addto(1, 100)
 
 # 顯示結果，輸出從 1 到 100 的總和
 print("從 1 累加到 100 的總和是:", result)</pre>
+<pre><span><strong>題目三：<br/></strong>延伸上題, 設計一個函式 add_only_even(1, 100), 可以完成從第一個輸入整數, 累加到第二個輸入變數的累加結果。<br/>頁面中請以 </span><span>add_only_even 作為連結標題。<br/><br/></span><a href="https://mdecp2024.github.io/hw-41323103/content/Brython.html?src=https://gist.githubusercontent.com/41323103/07d4648cec75558f7710f3cf72730062/raw/82a8584f7e670123f1ffe22d927e30f3234144ba/%25E9%25A1%258C%25E7%259B%25AE%25E4%25B8%2589%25EF%25BC%259Aadd_only_even(1,%2520100)">add_only_even</a></pre>
+<pre><span>設計思考：<br/>這段程式的目的是設計一個函式 <code>add_only_even(start, end)</code>，該函式能夠計算並返回從 <code>start</code> 到 <code>end</code> 範圍內所有偶數的總和。<br/>為了確保只累加偶數，需要對每個數字進行檢查，並在符合條件的情況下才將其加到總和中。<br/><br/></span>執行過程：<br/><br/>初始化總和：需要初始化一個變數 <code>total</code> 來儲存累加結果，初始值設定為 0。<br/>遍歷數字範圍：使用 <code>for</code> 迴圈遍歷從 <code>start</code> 到 <code>end</code> 之間的所有數字。每次迴圈都會檢查當前數字是否為偶數。<br/>檢查偶數：使用 <code>if i % 2 == 0</code> 來檢查當前數字 <code>i</code> 是否為偶數。若是偶數，將其加到總和中。<br/>返回結果：計算完畢後，返回總和 <code>total</code>，並將結果顯示在螢幕上。</pre>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 定義函式 add_only_even，接受兩個參數 start 和 end
+def add_only_even(start, end):
+    # 初始化總和，將 total 設為 0
+    total = 0
+    
+    # 使用 for 迴圈從 start 到 end (包含 end)，進行累加
+    for i in range(start, end + 1):
+        # 檢查當前的數字 i 是否為偶數（即 i 除以 2 的餘數為 0）
+        if i % 2 == 0:
+            # 如果 i 是偶數，將它加到總和 total 中
+            total += i
+    
+    # 返回最終的累加總和
+    return total
+
+# 呼叫函式 add_only_even，計算從 1 到 100 的偶數總和
+result = add_only_even(1, 100)
+
+# 顯示結果，輸出從 1 到 100 的偶數總和
+print("從 1 累加到 100 的偶數總和是:", result)
+</pre>
+<pre><br/><br/></pre>
+<pre></pre>
 <pre><br/><br/></pre>
 <pre><span><strong></strong></span></pre>
 <pre></pre><h1>HW 2</h1>
