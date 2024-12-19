@@ -575,15 +575,9 @@ draw_circles(x1, y1, r1, x2, y2, r2, x3, y3, r3)</pre>
 <p><a href="https://mdecp2024.github.io/hw-41323103/content/Brython.html?src=https://gist.githubusercontent.com/41323103/07d4648cec75558f7710f3cf72730062/raw/82a8584f7e670123f1ffe22d927e30f3234144ba/%25E9%25A1%258C%25E7%259B%25AE%25E4%25B8%2580%25EF%25BC%259A%25E5%25BE%259E%25201%2520%25E7%25B4%25AF%25E5%258A%25A0%25E5%2588%25B0%2520100">從 1 累加到 100</a></p>
 <p>設計思考：</p>
 <ul>
-<li>
-<p>初始化總和：用一個變數來儲存累加的結果。變數一開始是 0，因為累加操作是從零開始的。</p>
-</li>
-<li>
-<p>累加過程：使用 <code>for</code> 迴圈來遍歷從 1 到 100 的所有整數，並將它們加到總和中。</p>
-</li>
-<li>
-<p>顯示結果：將累加的結果輸出到螢幕上，告訴使用者總和是多少。</p>
-</li>
+<li>初始化總和：用一個變數來儲存累加的結果。變數一開始是 0，因為累加操作是從零開始的。</li>
+<li>累加過程：使用 <code>for</code> 迴圈來遍歷從 1 到 100 的所有整數，並將它們加到總和中。</li>
+<li>顯示結果：將累加的結果輸出到螢幕上，告訴使用者總和是多少。</li>
 </ul>
 <pre><strong></strong><em></em>執行過程：<br/>執行時，程式會從 1 開始，逐一將每個數字加到 <code>total</code> 中。這樣當 <code>i</code> 從 1 迴圈到 100 時，<br/><code>total</code> 就會累加所有數字的和。當迴圈結束時，<code>total</code> 的值為 5050（1 + 2 + 3 + ... + 100），<br/>並將這個結果顯示出來。</pre>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 初始化總和，設定為 0
