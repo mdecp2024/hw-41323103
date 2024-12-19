@@ -612,7 +612,7 @@ result = addto(1, 100)
 # 顯示結果，輸出從 1 到 100 的總和
 print("從 1 累加到 100 的總和是:", result)</pre>
 <pre><span><strong>題目三：<br/></strong>延伸上題, 設計一個函式 add_only_even(1, 100), 可以完成從第一個輸入整數, 累加到第二個輸入變數的累加結果。<br/>頁面中請以 </span><span>add_only_even 作為連結標題。<br/><br/></span><a href="https://mdecp2024.github.io/hw-41323103/content/Brython.html?src=https://gist.githubusercontent.com/41323103/07d4648cec75558f7710f3cf72730062/raw/82a8584f7e670123f1ffe22d927e30f3234144ba/%25E9%25A1%258C%25E7%259B%25AE%25E4%25B8%2589%25EF%25BC%259Aadd_only_even(1,%2520100)">add_only_even</a></pre>
-<pre><span>設計思考：<br/>這段程式的目的是設計一個函式 <code>add_only_even(start, end)</code>，該函式能夠計算並返回從 <code>start</code> 到 <code>end</code> 範圍內所有偶數的總和。<br/>為了確保只累加偶數，需要對每個數字進行檢查，並在符合條件的情況下才將其加到總和中。<br/><br/></span>執行過程：<br/><br/>初始化總和：需要初始化一個變數 <code>total</code> 來儲存累加結果，初始值設定為 0。<br/>遍歷數字範圍：使用 <code>for</code> 迴圈遍歷從 <code>start</code> 到 <code>end</code> 之間的所有數字。每次迴圈都會檢查當前數字是否為偶數。<br/>檢查偶數：使用 <code>if i % 2 == 0</code> 來檢查當前數字 <code>i</code> 是否為偶數。若是偶數，將其加到總和中。<br/>返回結果：計算完畢後，返回總和 <code>total</code>，並將結果顯示在螢幕上。</pre>
+<pre><span>設計思考：<br/>這段程式的目的是設計一個函式 <code>add_only_even(start, end)</code>，該函式能夠計算並返回從 <code>start</code> 到 <code>end</code> 範圍內所有偶數的總和。<br/>為了確保只累加偶數，需要對每個數字進行檢查，並在符合條件的情況下才將其加到總和中。<br/><br/></span>執行過程：<br/>初始化總和：需要初始化一個變數 <code>total</code> 來儲存累加結果，初始值設定為 0。<br/>遍歷數字範圍：使用 <code>for</code> 迴圈遍歷從 <code>start</code> 到 <code>end</code> 之間的所有數字。每次迴圈都會檢查當前數字是否為偶數。<br/>檢查偶數：使用 <code>if i % 2 == 0</code> 來檢查當前數字 <code>i</code> 是否為偶數。若是偶數，將其加到總和中。<br/>返回結果：計算完畢後，返回總和 <code>total</code>，並將結果顯示在螢幕上。</pre>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 定義函式 add_only_even，接受兩個參數 start 和 end
 def add_only_even(start, end):
     # 初始化總和，將 total 設為 0
