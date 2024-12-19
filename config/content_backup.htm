@@ -634,9 +634,33 @@ result = add_only_even(1, 100)
 # 顯示結果，輸出從 1 到 100 的偶數總和
 print("從 1 累加到 100 的偶數總和是:", result)
 </pre>
+<pre><br/><span><strong>題目四：</strong><br/>延伸上題, 設計一個函式 add_avoid_8(1, 100),可以完成從第一個輸入整數,累加到第二個輸入變數的累加過程,必須避開數字出現"8"的整數,<br/>頁面中請以 add_avoid_8 作為連結標題。<br/><br/></span><a href="https://mdecp2024.github.io/hw-41323103/content/Brython.html?src=https://gist.githubusercontent.com/41323103/07d4648cec75558f7710f3cf72730062/raw/82a8584f7e670123f1ffe22d927e30f3234144ba/%25E9%25A1%258C%25E7%259B%25AE%25E5%259B%259B%25EF%25BC%259Aadd_avoid_8(1,%2520100)">add_avoid_8</a><br/><br/></pre>
+<pre><span>設計思考：<br/>這段程式的目的是設計一個函式 <code>add_avoid_8(start, end)</code>，該函式能夠計算從 <code>start</code> 到 <code>end</code> 範圍內所有不包含數字 '8' 的整數的總和。<br/>為了達到這個目標，我們需要對每個數字進行檢查，看看它的數字是否包含 '8'，如果包含，則跳過該數字，否則將其加到總和中。<br/><br/></span></pre>
+<pre>執行過程：<br/>初始化總和：我們需要初始化一個變數 <code>total</code> 來儲存累加結果，初始值設定為 0。<br/>遍歷數字範圍：使用 <code>for</code> 迴圈遍歷從 <code>start</code> 到 <code>end</code> 之間的每個數字。<br/>檢查數字是否包含 '8'：使用 <code>if '8' not in str(i)</code> 來檢查當前數字 <code>i</code> 是否包含字符 '8'。這是將數字轉換為字串並檢查是否包含該字符的一種方法。<br/>加總不包含 '8' 的數字：如果該數字不包含 '8'，則將它加到總和中。<br/>返回結果：計算完畢後，返回累加總和 <code>total</code>，並將結果顯示在螢幕上。</pre>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 定義函式 add_avoid_8，接受兩個參數 start 和 end
+def add_avoid_8(start, end):
+    # 初始化總和，設為 0
+    total = 0
+    
+    # 使用 for 迴圈從 start 累加到 end (包含 end)
+    for i in range(start, end + 1):
+        # 檢查當前的數字 i 是否包含 '8'（將數字轉為字串後檢查）
+        if '8' not in str(i):
+            # 如果數字 i 不包含 '8'，則將它加到 total 中
+            total += i
+    
+    # 返回最終的累加總和
+    return total
+
+# 呼叫 add_avoid_8 函式，計算從 1 到 100 的總和，避開包含 '8' 的數字
+result = add_avoid_8(1, 100)
+
+# 顯示結果，輸出從 1 到 100 的總和（避開包含 '8' 的數字）
+print("從 1 累加到 100 的總和（避開包含 '8' 的數字）是:", result)
+</pre>
 <pre><br/><br/></pre>
 <pre></pre>
-<pre><br/><br/></pre>
+<pre><span> </span></pre>
 <pre><span><strong></strong></span></pre>
 <pre></pre><h1>HW 2</h1>
 <h4>主題: Python 的數列、判斷式與重複迴圈 (20%)<span style="background-color: #ffff99;"><br/></span></h4>
