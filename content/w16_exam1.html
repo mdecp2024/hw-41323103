@@ -142,7 +142,127 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content">HW 2 Exam << <a href='HW 2 Exam.html'>Previous</a> <a href='HW 3.html'>Next</a> >> HW 3<br /><h1>w16_exam1</h1>
-<br />HW 2 Exam << <a href='HW 2 Exam.html'>Previous</a> <a href='HW 3.html'>Next</a> >> HW 3</div>
+<p>
+<script src="./../cmsimde/static/brython.js"></script>
+<script src="./../cmsimde/static/brython_stdlib.js"></script>
+</p>
+<!-- 啟動Brython -->
+<p>
+<script>
+window.onload=function(){
+    brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});  // 設定Brython並加載指定路徑
+}
+</script>
+</p>
+<div id="brython_div1"></div>
+<p>
+<script type="text/python">
+from browser import html
+from browser import document as doc
+
+# 創建畫布 (canvas)，並設置其大小為 2000x2000 像素
+canvas = html.CANVAS(width = 2000, height = 2000)
+# 取得 HTML 中 id 為 brython_div1 的元素，這樣可以把畫布放置到這個元素中
+brython_div = doc["brython_div1"]
+# 將畫布添加到 HTML 頁面中的指定元素中
+brython_div <= canvas
+
+# 取得畫布的 2D 繪圖上下文，這樣我們才能在畫布上繪製圖形
+ctx = canvas.getContext("2d")
+
+# 設置畫筆的寬度為 2 像素，這樣我們畫的線會較粗
+ctx.lineWidth = 2
+# 設置畫筆的顏色為黑色
+ctx.strokeStyle = "black"
+
+# 繪製 X 軸 (從原點 (31, 3) 向右延伸到 (88, 3))
+ctx.beginPath()  # 開始繪製新的路徑
+ctx.moveTo(31, 3)  # 移動畫筆到原點座標 (31, 3)
+ctx.lineTo(88, 3)  # 畫一條線到座標 (88, 3)
+ctx.stroke()  # 完成繪製並顯示這條線
+
+# 繪製 Y 軸 (從原點 (31, 3) 向下延伸到 (31, 95))
+ctx.beginPath()  # 開始繪製新的路徑
+ctx.moveTo(31, 3)  # 移動畫筆到原點座標 (31, 3)
+ctx.lineTo(31, 95)  # 畫一條線到座標 (31, 95)
+ctx.stroke()  # 完成繪製並顯示這條線
+
+# 設置字體樣式為 20px 的 Arial 字型，並設置文字顏色為黑色
+ctx.font = "20px Arial"
+ctx.fillStyle = "black"
+
+# 在畫布上 (90, 25) 位置添加文字 "+X"，表示 X 軸的正方向
+ctx.fillText("+X", 90, 25)
+
+# 在畫布上 (20, 110) 位置添加文字 "+Y"，表示 Y 軸的正方向
+ctx.fillText("+Y", 20, 110)
+
+# 更改字體樣式為 12px 的 Arial 字型，用來標示原點座標
+ctx.font = "12px Arial"
+ctx.fillStyle = "black"
+# 在 (35, 20) 位置顯示文字 "(31, 3)"，這是原點的座標，並偏移 X 軸位置來避免與 Y 軸重疊
+ctx.fillText("(31, 3)", 35, 20)
+
+# 設置位移偏移量，x 和 y 變數對應原點座標 (31, 3)
+x = 31
+y = 3
+
+# 繪製橙色六邊形，所有的座標都是基於原點 (31, 3) 計算的
+ctx.beginPath()  # 開始繪製六邊形
+ctx.fillStyle = "#EBB000"  # 設置填充顏色為橙色
+# 設置六邊形的六個頂點位置，基於 (x, y) 原點進行偏移
+ctx.moveTo(x + 40, y + 70)  # 六邊形的第一個頂點
+ctx.lineTo(x + 60, y + 40)  # 第二個頂點
+ctx.lineTo(x + 90, y + 40)  # 第三個頂點
+ctx.lineTo(x + 110, y + 70)  # 第四個頂點
+ctx.lineTo(x + 90, y + 100)  # 第五個頂點
+ctx.lineTo(x + 60, y + 100)  # 第六個頂點
+ctx.closePath()  # 關閉路徑，使六邊形封閉
+ctx.fill()  # 填充六邊形的顏色
+
+# 繪製綠色菱形
+ctx.beginPath()  # 開始繪製菱形
+ctx.fillStyle = "#2CB05F"  # 設置填充顏色為綠色
+# 設置菱形的四個頂點位置
+ctx.moveTo(x + 130, y + 70)  # 菱形的第一個頂點
+ctx.lineTo(x + 150, y + 40)  # 第二個頂點
+ctx.lineTo(x + 170, y + 70)  # 第三個頂點
+ctx.lineTo(x + 150, y + 100)  # 第四個頂點
+ctx.closePath()  # 關閉路徑，將菱形閉合
+ctx.fill()  # 填充菱形
+
+# 繪製藍色三角形 (頂點在菱形的右側，並朝下)
+ctx.beginPath()  # 開始繪製三角形
+ctx.fillStyle = "#73B7FF"  # 設置填充顏色為藍色
+# 設置三角形的三個頂點位置
+ctx.moveTo(x + 174, y + 70)  # 頂點在菱形右側
+ctx.lineTo(x + 154, y + 100)  # 左下角
+ctx.lineTo(x + 194, y + 100)  # 右下角
+ctx.closePath()  # 關閉路徑，將三角形閉合
+ctx.fill()  # 填充三角形
+
+# 繪製粉紅色圓形
+ctx.beginPath()  # 開始繪製圓形
+ctx.fillStyle = "#FF458C"  # 設置填充顏色為粉紅色
+# 設置圓形的圓心座標為 (x + 220, y + 70)，半徑為 20
+ctx.arc(x + 220, y + 70, 20, 0, 2 * 3.14159)  # 畫圓
+ctx.fill()  # 填充圓形
+
+# 繪製黃色正方形
+ctx.beginPath()  # 開始繪製正方形
+ctx.fillStyle = "#EBDF00"  # 設置填充顏色為黃色
+# 設置正方形的位置和大小，左上角為 (x + 260, y + 43)，大小為 40x40
+ctx.rect(x + 260, y + 43, 40, 40)  # 畫正方形
+ctx.fill()  # 填充正方形
+
+# 繪製藍色矩形
+ctx.beginPath()  # 開始繪製矩形
+ctx.fillStyle = "#004A99"  # 設置填充顏色為藍色
+# 設置矩形的位置和大小，左上角為 (x + 320, y + 53)，大小為 60x20
+ctx.rect(x + 320, y + 53, 60, 20)  # 畫矩形
+ctx.fill()  # 填充矩形
+</script>
+</p><br />HW 2 Exam << <a href='HW 2 Exam.html'>Previous</a> <a href='HW 3.html'>Next</a> >> HW 3</div>
         
     <!-- footer -->
       <div class="container">
