@@ -953,8 +953,163 @@ main()
 <h2>HW 4 Exam</h2>
 <p>每六人為一組進行協同程式練習</p>
 <p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 4 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
-<h3><span>w16_exam3</span></h3>
-<h1>Final Report</h1>
+<h3>w16_exam3</h3>
+<p>
+<script src="/static/brython.js">
+</script>
+<script src="/static/brython_stdlib.js"></script>
+</p>
+<!-- 啟動Brython -->
+<p>
+<script>
+window.onload=function(){
+    brython({debug:1, pythonpath:['/static/','./../downloads/py/']});  // 設定Brython並加載指定路徑
+}
+</script>
+</p>
+<div id="brython_div1"></div>
+<p>
+<script type="text/python">
+from browser import html
+from browser import document as doc
+
+# 創建 canvas 元素，並設置畫布的寬度和高度為 1000x300 像素
+canvas = html.CANVAS(width=1000, height=300)
+brython_div = doc["brython_div1"]  # 取得在 HTML 中 id 為 "brython_div1" 的元素
+brython_div <= canvas  # 把 canvas 元素添加到指定的 div 中
+
+# 取得 canvas 元素的 2D 渲染上下文 (context)，這樣就能在畫布上進行繪圖操作
+ctx = canvas.getContext("2d")
+
+# 定義一個簡化的繪製直線的函數，這樣可以方便地多次使用
+def draw_line(x1, y1, x2, y2, line_width=2, stroke_style="black"):
+    """
+    繪製一條直線，從 (x1, y1) 到 (x2, y2)，可設定線條寬度和顏色
+    """
+    ctx.lineWidth = line_width  # 設定線條的寬度
+    ctx.strokeStyle = stroke_style  # 設定線條的顏色
+    ctx.beginPath()  # 開始繪製路徑
+    ctx.moveTo(x1, y1)  # 把畫筆移動到起始點 (x1, y1)
+    ctx.lineTo(x2, y2)  # 繪製一條線條，從 (x1, y1) 到 (x2, y2)
+    ctx.stroke()  # 進行繪製，顯示線條
+
+# 定義一個繪製文本的函數
+def draw_text(text, x, y, font="20px Arial", fill_style="black"):
+    """
+    在畫布上繪製文本，設定字體、顏色以及文本的位置
+    """
+    ctx.font = font  # 設定字體樣式
+    ctx.fillStyle = fill_style  # 設定文本顏色
+    ctx.fillText(text, x, y)  # 在 (x, y) 位置繪製文本
+    ctx.font = "12px Arial"
+    ctx.fillStyle = "red"
+    ctx.fillText("入口", 170, 110)  # 在指定位置繪製“入口”字樣
+    ctx.fillText("出口", 170, 260)  # 在指定位置繪製“出口”字樣
+
+# 繪製紅色線條的函數
+def draw_red_path():
+    """
+    繪製一條紅色路徑
+    """
+    # 繪製紅色路徑的每條線段
+    draw_line(180, 130, 180, 140, stroke_style="red")  # 繪製直線段
+    draw_line(180, 140, 220, 140, stroke_style="red")  # 繪製直線段
+    draw_line(220, 140, 220, 180, stroke_style="red")  # 繪製直線段
+    draw_line(220, 180, 200, 180, stroke_style="red")  # 繪製直線段
+    draw_line(200, 180, 200, 160, stroke_style="red")  # 繪製直線段
+    draw_line(200, 160, 180, 160, stroke_style="red")  # 繪製直線段
+    draw_line(180, 160, 180, 180, stroke_style="red")  # 繪製直線段
+    draw_line(180, 180, 140, 180, stroke_style="red")  # 繪製直線段
+    draw_line(140, 180, 140, 220, stroke_style="red")  # 繪製直線段
+    draw_line(140, 220, 160, 220, stroke_style="red")  # 繪製直線段
+    draw_line(160, 220, 160, 200, stroke_style="red")  # 繪製直線段
+    draw_line(160, 200, 200, 200, stroke_style="red")  # 繪製直線段
+    draw_line(200, 200, 200, 220, stroke_style="red")  # 繪製直線段
+    draw_line(200, 220, 180, 220, stroke_style="red")  # 繪製直線段
+    draw_line(180, 220, 180, 230, stroke_style="red")  # 繪製直線段
+
+# 繪製 L 形的線條，這是一條簡單的 L 形結構
+def draw_l_shape(x, y):
+    """
+    繪製 L 形的兩條線條
+    第一條線從 (x, y) 到 (x + 76, y) — 水平線
+    第二條線從 (x, y) 到 (x, y + 90) — 垂直線
+    """
+    draw_line(x, y, x + 76, y)  # 繪製水平線
+    draw_line(x, y, x, y + 90)  # 繪製垂直線
+
+# 繪製紅色短線，這兩條短線用來強調指定的點
+def draw_red_short_lines(x, y):
+    """
+    繪製兩條紅色的短線，用來標記 (x, y) 的位置
+    第一條是從 (x, y) 向下 1 像素的紅色短線
+    第二條是從 (x, y) 向右 1 像素的紅色短線
+    """
+    draw_line(x, y, x, y + 1, line_width=5, stroke_style="red")  # 繪製垂直的紅色短線
+    draw_line(x, y, x + 1, y, line_width=5, stroke_style="red")  # 繪製水平的紅色短線
+
+# 繪製藍色的六邊形多邊形
+def draw_blue_polygon():
+    """
+    繪製一個由 6 條藍色線條組成的封閉多邊形
+    這個多邊形的每一條邊都是黑色的
+    """
+    # 各條邊的坐標順序
+    draw_line(130, 130, 170, 130, stroke_style="black")  # 第一條邊
+    draw_line(190, 130, 230, 130, stroke_style="black")  # 第二條邊
+    draw_line(230, 130, 230, 230, stroke_style="black")  # 第三條邊
+    draw_line(230, 230, 190, 230, stroke_style="black")  # 第四條邊
+    draw_line(170, 230, 130, 230, stroke_style="black")  # 第五條邊
+    draw_line(130, 230, 130, 130, stroke_style="black")  # 第六條邊
+
+# 繪製矩形內部的藍色線條，這些線條在矩形內部創建更多的小區域
+def draw_inner_lines_in_rectangle():
+    """
+    繪製矩形內部的藍色線條，形成更多的小區域
+    """
+    # 這些線條是繪製在 (150, 150) 和 (210, 230) 之間的區域
+    draw_line(150, 150, 210, 150, stroke_style="black")  # 上邊
+    draw_line(210, 150, 210, 170, stroke_style="black")  # 右邊
+    draw_line(170, 150, 170, 170, stroke_style="black")  # 中間的垂直線
+    draw_line(170, 170, 130, 170, stroke_style="black")  # 下邊
+    draw_line(190, 170, 190, 190, stroke_style="black")  # 內部短垂直線
+    draw_line(190, 190, 210, 190, stroke_style="black")  # 內部短水平線
+    draw_line(210, 190, 210, 230, stroke_style="black")  # 右邊
+    draw_line(170, 170, 150, 170, stroke_style="black")  # 左邊
+    draw_line(150, 210, 150, 190, stroke_style="black")  # 內部左邊
+    draw_line(150, 190, 190, 190, stroke_style="black")  # 內部底部
+    draw_line(170, 230, 170, 210, stroke_style="black")  # 內部右邊
+    draw_line(170, 210, 190, 210, stroke_style="black")  # 內部右側底部
+
+# 主函數，負責調用所有繪圖函數來執行繪製操作
+def main():
+    """
+    主函數，負責調用各種繪圖函數來完成圖形的繪製
+    """
+    # 繪製 L 形線條，起始位置為 (31, 3)
+    draw_l_shape(31, 3)
+
+    # 繪製紅色短線條，強調 (31, 3) 的位置
+    draw_red_short_lines(31, 3)
+
+    # 繪製文本 "(31,3)"，並將其放置在適當的 y 位置，避免與其他圖形重疊
+    draw_text("(31,3)", 40, 35, font="20px Arial", fill_style="red")
+
+    # 繪製紅色路徑
+    draw_red_path()
+
+    # 繪製藍色的多邊形
+    draw_blue_polygon()
+
+    # 繪製矩形內部的藍色線條，創建更多的小區域
+    draw_inner_lines_in_rectangle()
+
+# 調用主函數，執行所有繪圖操作
+main()
+</script>
+</p>
+<p><a href="https://mdecp2024.github.io/hw-41323103/content/Brython.html?src=https://gist.githubusercontent.com/41323103/2f7776c16ac37df4560795e71bab09dc/raw/0315557ccc5188e0ffadfe8c4429bf8823154ced/w16_exam3">迷宮路線程式範例</a></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="688" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/MqJ1m09vqZ8" title="國立虎尾科技大學機械設計工程系 - 計算機程式 - w16_exam3: 41323103" width="1280"></iframe></p><h1>Final Report</h1>
 <p>期末口頭與書面專題報告 (20%)</p>
 <p>期末口頭專題報告影片:</p>
 <p style="padding-left: 30px;">......</p>
